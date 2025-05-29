@@ -8,6 +8,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
+import Exception.GameExitException;
+import Exception.GameRestartException;
+import Exception.GameBreakException;
+
+import static Constants.Constants.END;
+import static Constants.Constants.RESTART;
 
 
 public class Interactor {
@@ -18,24 +24,36 @@ public class Interactor {
         scanner = new Scanner(System.in);
     }
 
+    public String read() throws GameBreakException {
+        String input = scanner.nextLine();
+        if (input.equalsIgnoreCase(END)){
+            System.out.println("Game exiting. Goodbye!");
+            throw new GameExitException();
+        } else if (input.equalsIgnoreCase(RESTART)) {
+            System.out.println("Game restarting. Please wait a moment!");
+            throw new GameRestartException();
+        }
+        return input;
+    }
+
     public void printGreetings() {
         System.out.println("Welcome to Minesweeper!");
     }
 
 
-    public int getMapSize() {
+    public int getMapSize() throws GameBreakException {
         System.out.println("Enter the size of the grid (e.g. 4 for a 4x4 grid): ");
-        String input = scanner.nextLine();
+        String input = read();
         while (!InputValidator.isValidSize(input)) {
-            System.out.println("Enter the size of the grid (e.g. 4 for a 4x4 grid): ");
+            System.out.println("Invalid input! Enter the size of the grid (e.g. 4 for a 4x4 grid): ");
             input = scanner.nextLine();
         }
         return Integer.parseInt(input);
     }
 
-    public int getMineSize(int mapSize) {
+    public int getMineSize(int mapSize) throws GameBreakException {
         System.out.println("Enter the number of mines to place on the grid (maximum is 35% of the total squares):");
-        String input = scanner.nextLine();
+        String input = read();
         while (!InputValidator.isValidMineFieldSize(input, mapSize)) {
             System.out.println("Enter the number of mines to place on the grid (maximum is 35% of the total squares) :");
             input = scanner.nextLine();
@@ -43,9 +61,9 @@ public class Interactor {
         return Integer.parseInt(input);
     }
 
-    public Slot getSlotToReveal(int mapSize) {
+    public Slot getSlotToReveal(int mapSize) throws GameBreakException {
         System.out.println("Select a square to reveal (e.g. A1): ");
-        String input = scanner.nextLine();
+        String input = read();
         while (!InputValidator.isValidSlot(input, mapSize)) {
             System.out.println("Select a square to reveal (e.g. A1): ");
             input = scanner.nextLine();

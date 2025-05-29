@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 import static Constants.Constants.*;
+import Exception.GameBreakException;
 
 public class GameState {
 
@@ -17,7 +18,10 @@ public class GameState {
     public static int attempts;
     public static Interactor interactor;
 
-    public static void start() {
+    public static void initialise() {
+        state = START;
+    }
+    public static void start() throws GameBreakException {
         interactor = new Interactor();
         interactor.printGreetings();
         map = new GameMap();
@@ -26,12 +30,10 @@ public class GameState {
         map.setMineSize(interactor.getMineSize(GameMap.getMapSize()));
         map.setMineField();
         attempts = 0;
-        if (!Objects.equals(state, END)) {
-            state = IN_PROGRESS;
-        }
+        state = IN_PROGRESS;
     }
 
-    public static void in_progress() {
+    public static void in_progress() throws GameBreakException {
         interactor.printMap();
         if (attempts >= GameMap.getMapSize() * GameMap.getMapSize() - GameMap.getMineSize()) {
             state = COMPLETED;

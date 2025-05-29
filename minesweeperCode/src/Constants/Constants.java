@@ -12,4 +12,5 @@ public class Constants {
     public static final String END = "end";
     public static final String FAIL = "FAIL";
     public static final int MAX_CELL_SPACE = 5;
+    public static final String RESTART = "restart";
 }
