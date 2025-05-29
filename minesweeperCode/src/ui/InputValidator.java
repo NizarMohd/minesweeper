@@ -37,8 +37,6 @@ public class InputValidator {
             Slot slot = new Slot(input);
             boolean isRowValid = slot.getFirst() <= mapSize;
             boolean isColValid = slot.getSecond() <= mapSize;
-            System.out.println(slot.getFirst());
-            System.out.println(slot.getSecond());
             if(!isRowValid || !isColValid) {
                 System.out.println("Slot doesnt exist!");
                 return false;
