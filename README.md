@@ -2,15 +2,15 @@
 
 ## BASIC RELATIONSHIP
 
-# GameState uses GameMap, Slot, Interactor, and InputValidator.
+ GameState uses GameMap, Slot, Interactor, and InputValidator.
 
-# GameMap uses Constants and Slot.
+ GameMap uses Constants and Slot.
 
-# InputValidator uses GameMap and Slot.
+ InputValidator uses GameMap and Slot.
 
-# Interactor uses InputValidator, GameMap, Slot, and throws GameBreakException.
+ Interactor uses InputValidator, GameMap, Slot, and throws GameBreakException.
 
-# GameExitException and GameRestartException inherit from GameBreakException.
+ GameExitException and GameRestartException inherit from GameBreakException.
 
 ## Classes
 # 1. `Constants`
