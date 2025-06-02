@@ -1,5 +1,16 @@
 # minesweeper
 
+## BASIC RELATIONSHIP
+
+# GameState uses GameMap, Slot, Interactor, and InputValidator.
+
+# GameMap uses Constants and Slot.
+
+# InputValidator uses GameMap and Slot.
+
+# Interactor uses InputValidator, GameMap, Slot, and throws GameBreakException.
+
+# GameExitException and GameRestartException inherit from GameBreakException.
 
 ## Classes
 # 1. `Constants`
