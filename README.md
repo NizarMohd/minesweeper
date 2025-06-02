@@ -1,9 +1,25 @@
 # minesweeper
 
+# 🛠️ Java Minesweeper Environment Specification
+
+## ✅ Java Development Environment
+
+| Component              | Requirement                |
+|------------------------|----------------------------|
+| **Java Version**       | Java 8 or Java 11 (LTS)    |
+| **Build Tool**         | Maven 3.6+ or Gradle 6+    |
+| **JDK Vendor**         | OpenJDK / Oracle JDK       |
+| **Encoding**           | UTF-8                      |
+| **Compiler Flags**     | `-Xlint:unchecked` (optional) |
+
+---
+
+
+# UML Class Diagram
 ![image](https://github.com/user-attachments/assets/3cf8bad9-1f0d-4170-b27d-8545c6cd3825)
 
 
-## BASIC RELATIONSHIP
+## Basic Relationship
 
  GameState uses GameMap, Slot, Interactor, and InputValidator.
 
