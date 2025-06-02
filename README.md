@@ -1,5 +1,8 @@
 # minesweeper
 
+![image](https://github.com/user-attachments/assets/3cf8bad9-1f0d-4170-b27d-8545c6cd3825)
+
+
 ## BASIC RELATIONSHIP
 
  GameState uses GameMap, Slot, Interactor, and InputValidator.
